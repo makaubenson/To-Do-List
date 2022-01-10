@@ -29,9 +29,19 @@ function addItem(e) {
     console.log("editing");
   } else {
     // console.log("empty value");
-    Alert.textContent = "empty value";
-    Alert.classList.add("alert-danger");
+    displayAlert("Please Enter a Value", "danger");
   }
+}
+//display alert
+function displayAlert(text, action) {
+  Alert.textContent = text;
+  Alert.classList.add(`alert-${action}`);
+
+  //remove alert
+  setTimeout(function () {
+    Alert.textContent = "";
+    Alert.classList.remove(`alert-${action}`);
+  }, 1000);
 }
 // ****** LOCAL STORAGE **********
 
