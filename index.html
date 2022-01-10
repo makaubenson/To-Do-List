@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grocery Bud</title>
+    <title>ToDo List</title>
     <!-- font-awesome -->
     <link
       rel="stylesheet"
@@ -13,7 +13,33 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>grocery bud project</h1>
+    <section class="section-center">
+      <!--form-->
+      <form action="" class="grocery-form">
+        <p class="alert"></p>
+        <h3>ToDo List</h3>
+        <div class="form-control">
+          <input type="text" placeholder="e.g eggs" id="grocery" />
+          <button class="submit-btn" type="submit">Save</button>
+        </div>
+      </form>
+      <!--list-->
+      <div class="grocery-container">
+        <div class="grocery-list">
+          <article class="grocery-item">
+            <p class="title">item</p>
+            <div class="btn-container">
+              <button class="edit-btn" type="button">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="delete-btn" type="button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
     <!-- javascript -->
     <script src="app.js"></script>
   </body>
