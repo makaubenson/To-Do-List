@@ -16,6 +16,7 @@ let editID = "";
 form.addEventListener("submit", addItem);
 // clear items
 clearBtn.addEventListener("click", clearItems);
+
 // ****** FUNCTIONS **********
 function addItem(e) {
   e.preventDefault();
@@ -80,6 +81,8 @@ function clearItems() {
   }
   container.classList.remove("show-container");
   displayAlert("empty list", "danger");
+  setBackToDefault();
+  //localStorage.removeItem('list');
 }
 //set back to default
 function setBackToDefault() {
