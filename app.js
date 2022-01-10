@@ -47,6 +47,10 @@ function addItem(e) {
     displayAlert("Item added to the list", "success");
     //show container
     container.classList.add("show-container");
+    //add to local storage
+    addToLocalStorage(id, value);
+    //set back to default
+    setBackToDefault();
   } else if (value && editFlag) {
     console.log("editing");
   } else {
@@ -65,6 +69,16 @@ function displayAlert(text, action) {
     Alert.classList.remove(`alert-${action}`);
   }, 1000);
 }
+//set back to default
+function setBackToDefault() {
+  //   console.log("set back to default");
+  grocery.value = "";
+  editFlag = false;
+  editID = "";
+  submitBtn.textContent = "Save";
+}
 // ****** LOCAL STORAGE **********
-
+function addToLocalStorage(id, value) {
+  console.log("added to local storage");
+}
 // ****** SETUP ITEMS **********
