@@ -78,6 +78,8 @@ function clearItems() {
       list.removeChild(item);
     });
   }
+  container.classList.remove("show-container");
+  displayAlert("empty list", "danger");
 }
 //set back to default
 function setBackToDefault() {
