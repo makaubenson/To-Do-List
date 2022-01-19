@@ -93,7 +93,7 @@ function clearItems() {
   container.classList.remove("show-container");
   displayAlert("empty list", "danger");
   setBackToDefault();
-  //localStorage.removeItem('list');
+  localStorage.removeItem("list");
 }
 //delete function
 function deleteItem(e) {
@@ -107,7 +107,7 @@ function deleteItem(e) {
   displayAlert("Item Removed", "danger");
   setBackToDefault();
   // remove from local storage
-  // removeFromLocalStorage(ID);
+  removeFromLocalStorage(id);
 }
 //edit function
 function editItem(e) {
@@ -130,8 +130,47 @@ function setBackToDefault() {
 }
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value) {
-  console.log("added to local storage");
+  const grocery = { id: id, value: value };
+  // console.log(grocery);
+  let items = getLocalStorage();
+  // console.log(items);
+  items.push(grocery);
+  localStorage.setItem("list", JSON.stringify(items));
+  // console.log("added to local storage");
 }
-function removeFromLocalStorage(id) {}
-function editLocalStorage(id, value) {}
+function removeFromLocalStorage(id) {
+  let items = getLocalStorage();
+  items = items.filter(function (item) {
+    if (item.id !== id) {
+      return item;
+    }
+  });
+  localStorage.setItem("list", JSON.stringify(items));
+}
+function editLocalStorage(id, value) {
+  let items = getLocalStorage();
+  items = items.map(function (item) {
+    if (item.id === id) {
+      item.value = value;
+    }
+    return item;
+  });
+  localStorage.setItem("list", JSON.stringify(items));
+}
+function getLocalStorage() {
+  return localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+  items.push(grocery);
+  localStorage.setItem("list", JSON.stringify(items));
+}
+//localStorage API
+//setItem
+///getItem
+//removeItem
+//save as strings
+// localStorage.setItem("orange", JSON.stringify(["item", "item2"]));
+// const oranges = JSON.parse(localStorage.getItem("orange"));
+// console.log(oranges);
+// localStorage.removeItem("orange");
 // ****** SETUP ITEMS **********
