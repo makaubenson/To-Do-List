@@ -95,6 +95,9 @@ function deleteItem(e) {
   const element = e.currentTarget.parentElement.parentElement;
   // console.log(element);
   list.removeChild(element);
+  if (list.children.length === 0) {
+    container.classList.remove("show-container");
+  }
 }
 //edit function
 function editItem() {
